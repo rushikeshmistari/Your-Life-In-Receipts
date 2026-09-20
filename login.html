@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Sign In | Life, In Receipts</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/login.css" />
+</head>
+
+<body class="login-page">
+    <canvas id="bg-canvas"></canvas>
+    <div class="floating-receipts" id="chips"></div>
+
+    <main class="login-layout">
+        <section class="login-hero">
+            <a class="receipt-badge" href="index.html">Life, In Receipts</a>
+
+            <h1 class="hero-headline">
+                Every moment<br />
+                <span>left a trace.</span>
+            </h1>
+
+            <p class="hero-sub">
+                A song at 2 AM. A purchase you forgot. A place you wandered into.
+                Alone, they're noise. Together, they're your story.
+            </p>
+
+            <div class="receipt-trail">
+                <div class="trail-item">
+                    <span class="dot dot-1"></span>
+                    <span>🎵 Played music late at night</span>
+                </div>
+
+                <div class="trail-item">
+                    <span class="dot dot-2"></span>
+                    <span>🛒 A small purchase became a memory</span>
+                </div>
+
+                <div class="trail-item">
+                    <span class="dot dot-3"></span>
+                    <span>📍 Everyday moments formed a pattern</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="login-card-wrap">
+            <div class="glass-card">
+                <h2 class="card-title">Sign in</h2>
+                <p class="card-sub">to read your story</p>
+
+                <button class="btn-google" id="google-login" type="button">
+                    <span class="google-letter">G</span>
+                    Continue with Google
+                </button>
+
+                <div class="divider">
+                    <span>or sign in with email</span>
+                </div>
+
+                <form id="login-form">
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        />
+                    </div>
+
+                    <div class="field">
+                        <div class="field-row">
+                            <label for="password">Password</label>
+                            <a href="#" class="forgot">Forgot password?</a>
+                        </div>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="••••••••"
+                            autocomplete="current-password"
+                            required
+                        />
+                    </div>
+
+                    <button class="btn-submit" id="login-button" type="submit">
+                        Open my receipts →
+                    </button>
+
+                    <p class="login-message" id="login-message"></p>
+                </form>
+
+                <p class="signup-prompt">
+                    New here? <button class="create-story-link" id="create-story-button" type="button">Create your story</button>
+                </p>
+            </div>
+        </section>
+        <div class="account-modal" id="account-modal" aria-hidden="true">
+    <div class="account-dialog">
+        <button class="modal-close" id="modal-close" type="button" aria-label="Close">
+            ×
+        </button>
+
+        <div class="google-logo">G</div>
+        <h2>Choose an account</h2>
+        <p>to continue to Life, In Receipts</p>
+
+        <button class="account-option" type="button" data-account="alex@example.com" data-name="Alex">
+            <span class="account-avatar">A</span>
+            <span>
+                <strong>Alex Morgan</strong>
+                <small>alex@example.com</small>
+            </span>
+        </button>
+
+        <button class="account-option" type="button" data-account="jordan@example.com" data-name="Jordan">
+            <span class="account-avatar alt-avatar">J</span>
+            <span>
+                <strong>Jordan Lee</strong>
+                <small>jordan@example.com</small>
+            </span>
+        </button>
+
+        <button class="use-another-account" type="button">
+            + Use another account
+        </button>
+    </div>
+</div>
+    </main>
+
+    <div class="signup-modal" id="signup-modal" aria-hidden="true">
+        <form class="signup-dialog" id="signup-form">
+            <button class="modal-close" id="signup-close" type="button" aria-label="Close">×</button>
+            <p class="signup-kicker">NEW MEMORY ARCHIVE</p>
+            <h2>Create your story</h2>
+            <p>Choose a display name for this frontend demo.</p>
+            <label for="signup-name">Your name</label>
+            <input id="signup-name" type="text" placeholder="Your name" required />
+            <label for="signup-email">Email</label>
+            <input id="signup-email" type="email" placeholder="you@example.com" required />
+            <button class="btn-submit" type="submit">Create demo archive →</button>
+        </form>
+    </div>
+
+    <script src="js/auth-ui.js"></script>
+</body>
+</html>

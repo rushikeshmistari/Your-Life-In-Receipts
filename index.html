@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life, In Receipts</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="home-page">
+    <canvas id="home-canvas"></canvas>
+    <div class="home-float-layer" id="home-float-layer"></div>
+
+    <header class="home-nav">
+        <a class="home-brand" href="index.html">Life, In Receipts<span>®</span></a>
+        <div class="home-nav-links">
+            <a href="#how-it-works">How it works</a>
+            <a class="home-login-link" href="login.html">Sign in</a>
+        </div>
+    </header>
+
+    <main class="home-shell">
+        <section class="home-hero">
+            <div class="hero-copy-wrap">
+                <p class="home-kicker">A DIGITAL MEMORY ARCHIVE</p>
+                <h1>Small moments.<br /><span>One living story.</span></h1>
+                <p class="home-intro">Music, purchases, routines and late-night thoughts are not isolated data points. Follow the threads and see what your everyday life has been trying to say.</p>
+                <div class="home-actions">
+                    <a class="home-primary-action" href="login.html">Open your archive <span>↗</span></a>
+                    <a class="home-secondary-action" href="#how-it-works">See the idea <span>↓</span></a>
+                </div>
+                <p class="home-data-status" id="data-status">Reading your receipt archive…</p>
+            </div>
+
+            <aside class="home-memory-card" aria-label="A sample connected memory">
+                <div class="memory-card-header"><span>MEMORY THREAD 01</span><span>• LIVE</span></div>
+                <div class="memory-card-line"></div>
+                <div class="memory-node"><span class="memory-icon">🎵</span><div><strong>Late-night replay</strong><small>2:14 AM · a familiar song</small></div></div>
+                <div class="memory-connector"></div>
+                <div class="memory-node"><span class="memory-icon">☕</span><div><strong>Morning ritual</strong><small>8:31 AM · a small expense</small></div></div>
+                <div class="memory-connector"></div>
+                <div class="memory-node"><span class="memory-icon">📝</span><div><strong>A thought saved</strong><small>One day later · a new direction</small></div></div>
+                <p class="memory-card-footer">Unrelated receipts become a chapter when you look closer.</p>
+            </aside>
+        </section>
+
+        <section class="home-stat-row" aria-label="Dataset summary">
+            <article><strong id="home-total">—</strong><span>moments in the archive</span></article>
+            <article><strong id="home-music">—</strong><span>music receipts</span></article>
+            <article><strong id="home-spend">—</strong><span>spending receipts</span></article>
+        </section>
+
+        <section class="how-section" id="how-it-works">
+            <div><p class="home-kicker">NOT A NORMAL TIMELINE</p><h2>Find the meaning<br />between the records.</h2></div>
+            <div class="how-list">
+                <article><span>01</span><div><h3>Explore</h3><p>Search songs, routines and purchases without drowning in a spreadsheet.</p></div></article>
+                <article><span>02</span><div><h3>Connect</h3><p>See recurring time, moods and patterns across different kinds of receipts.</p></div></article>
+                <article><span>03</span><div><h3>Remember</h3><p>Turn scattered details into chapters that make the digital life feel human.</p></div></article>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/receipt-analysis.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

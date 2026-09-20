@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Life, In Receipts</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <div class="floating-receipts" id="floating-receipts"></div>
+
+    <a class="skip-link" href="#story-mode">Skip to story</a>
+    <header class="topbar">
+        <a class="brand" href="index.html">Life, In Receipts</a>
+        <a class="back-link" href="index.html">← Home</a>
+    </header>
+
+    <main class="dashboard-shell">
+        <section class="hero glass-panel">
+            <p class="eyebrow">YOUR DIGITAL MEMORY ARCHIVE</p>
+            <h1>Welcome back, <span id="welcome-name">Alex</span>.</h1>
+            <p class="hero-copy">162,588 moments are ready to tell a story.</p>
+            <div class="hero-actions">
+                <button class="story-button" id="start-story" type="button">Read your story →</button>
+                <a class="explore-button" href="#explorer">Explore receipts ↓</a>
+            </div>
+        </section>
+
+        <section class="story-mode glass-panel" id="story-mode" aria-labelledby="story-heading">
+            <div class="story-intro">
+                <p class="eyebrow">GUIDED STORY MODE</p>
+                <h2 id="story-heading">A life is more than a list of events.</h2>
+                <p>Follow the recurring patterns in the archive, then open the actual records that support each observation.</p>
+            </div>
+            <div class="story-progress" aria-label="Story chapters">
+                <button class="story-dot active" type="button" data-story-index="0" aria-label="Open the archive overview">01 <span>Archive</span></button>
+                <button class="story-dot" type="button" data-story-index="1" aria-label="Open Night Owl Era">02 <span>Night owl</span></button>
+                <button class="story-dot" type="button" data-story-index="2" aria-label="Open Daily Rituals">03 <span>Rituals</span></button>
+                <button class="story-dot" type="button" data-story-index="3" aria-label="Open Your Soundtrack">04 <span>Soundtrack</span></button>
+            </div>
+            <article class="story-stage" aria-live="polite">
+                <p class="eyebrow" id="story-kicker">OPENING FRAME</p>
+                <p class="story-count" id="story-count">162,588</p>
+                <h3 id="story-title">Small moments become a living archive.</h3>
+                <p class="story-copy" id="story-copy">This guided reading turns repeated behavior in the supplied records into an interpretable story. It is an evidence-led lens, not a claim about a real person.</p>
+                <div class="story-evidence" id="story-evidence"></div>
+                <div class="story-controls">
+                    <button class="quiet-button" id="story-previous" type="button">← Previous</button>
+                    <span id="story-position">1 / 4</span>
+                    <button class="story-button compact" id="story-next" type="button">Next chapter →</button>
+                    <button class="explore-evidence" id="story-explore" type="button">Open supporting receipts</button>
+                </div>
+            </article>
+        </section>
+
+        <section class="section-block" aria-labelledby="insights-heading">
+            <div class="section-heading">
+                <p class="eyebrow">AT A GLANCE</p>
+                <h2 id="insights-heading">Your digital rhythm</h2>
+            </div>
+
+            <div class="insight-grid">
+                <article class="insight-card glass-panel">
+                    <span class="card-icon">🎵</span>
+                    <p>Total songs played</p>
+                    <strong id="songs-count">—</strong>
+                </article>
+                <article class="insight-card glass-panel">
+                    <span class="card-icon">🌙</span>
+                    <p>Most active hour</p>
+                    <strong id="active-hour">—</strong>
+                </article>
+                <article class="insight-card glass-panel">
+                    <span class="card-icon">🏠</span>
+                    <p>Household transactions</p>
+                    <strong id="household-count">—</strong>
+                </article>
+                <article class="insight-card glass-panel">
+                    <span class="card-icon">🧾</span>
+                    <p>Purchase records</p>
+                    <strong id="purchase-count">—</strong>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block" aria-labelledby="chapters-heading">
+            <div class="section-heading">
+                <p class="eyebrow">DISCOVERED PATTERNS</p>
+                <h2 id="chapters-heading">Your life chapters</h2>
+            </div>
+
+            <div class="chapters-grid">
+                <article class="chapter-card glass-panel" data-chapter="night" tabindex="0">
+                    <span class="chapter-number">01</span>
+                    <span class="chapter-icon">🌙</span>
+                    <h3>Night Owl Era</h3>
+                    <p>Late listening sessions reveal the hours when reflection became routine.</p>
+                    <button class="chapter-button" type="button" data-filter="music">Explore music →</button>
+                </article>
+                <article class="chapter-card glass-panel" data-chapter="rituals" tabindex="0">
+                    <span class="chapter-number">02</span>
+                    <span class="chapter-icon">☕</span>
+                    <h3>Daily Rituals</h3>
+                    <p>Everyday household choices create the quiet rhythm beneath the bigger moments.</p>
+                    <button class="chapter-button" type="button" data-filter="household">Explore rituals →</button>
+                </article>
+                <article class="chapter-card glass-panel" data-chapter="soundtrack" tabindex="0">
+                    <span class="chapter-number">03</span>
+                    <span class="chapter-icon">🎧</span>
+                    <h3>Your Soundtrack</h3>
+                    <p>Thousands of plays form a soundtrack that follows your changing moods.</p>
+                    <button class="chapter-button" type="button" data-filter="music">Find the songs →</button>
+                </article>
+            </div>
+
+            <section class="chapter-viewer glass-panel" id="chapter-viewer" aria-live="polite">
+                <p class="eyebrow" id="chapter-viewer-kicker">CHOOSE A CHAPTER</p>
+                <h3 id="chapter-viewer-title">Click a chapter to reveal the pattern behind it.</h3>
+                <p id="chapter-viewer-copy">Your receipt archive is more meaningful when a repeated behavior becomes a story you can follow.</p>
+                <div class="chapter-thread" id="chapter-thread"></div>
+                <button class="viewer-action" id="viewer-action" type="button" hidden>Explore these receipts →</button>
+            </section>
+        </section>
+
+        <section class="explorer-section glass-panel" id="explorer" aria-labelledby="explorer-heading">
+            <div class="explorer-header">
+                <div>
+                    <p class="eyebrow">RECEIPT EXPLORER</p>
+                    <h2 id="explorer-heading">Find a moment</h2>
+                </div>
+                <label class="search-box" for="receipt-search">
+                    <span>⌕</span>
+                    <input id="receipt-search" type="search" placeholder="Search visible receipts" />
+                </label>
+            </div>
+
+            <div class="filter-row" role="group" aria-label="Receipt type filters">
+                <button class="filter-button active" type="button" data-filter="all">All</button>
+                <button class="filter-button" type="button" data-filter="music">Music</button>
+                <button class="filter-button" type="button" data-filter="household">Household</button>
+                <button class="filter-button" type="button" data-filter="purchases">Purchases</button>
+            </div>
+
+            <p class="receipt-status" id="receipt-status" aria-live="polite">Loading selected memories...</p>
+            <div class="receipt-grid" id="receipt-grid"></div>
+        </section>
+    </main>
+
+    <div class="receipt-modal" id="receipt-modal" aria-hidden="true">
+        <section class="receipt-dialog glass-panel" role="dialog" aria-modal="true" aria-labelledby="receipt-dialog-title">
+            <button class="modal-close" id="receipt-close" type="button" aria-label="Close receipt details">×</button>
+            <p class="eyebrow" id="receipt-dialog-type">RECEIPT</p>
+            <h2 id="receipt-dialog-title">A recorded moment</h2>
+            <p id="receipt-dialog-detail"></p>
+            <div class="connection-note" id="receipt-dialog-note"></div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/receipt-analysis.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
