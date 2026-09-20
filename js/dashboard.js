@@ -201,9 +201,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     const orbs = [{ x: 0.16, y: 0.2, radius: 0.43, color: "#7d1e3d", speedX: 0.000055, speedY: 0.00004 }, { x: 0.84, y: 0.64, radius: 0.35, color: "#bd8950", speedX: -0.00005, speedY: 0.000055 }, { x: 0.5, y: 0.88, radius: 0.28, color: "#76527a", speedX: 0.00004, speedY: -0.00004 }];
-    function drawBackground() {
+    function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+    }
+
+    function drawBackground() {
         const base = context.createLinearGradient(0, 0, canvas.width, canvas.height);
         base.addColorStop(0, "#10070d"); base.addColorStop(0.55, "#240c19"); base.addColorStop(1, "#0d0609");
         context.fillStyle = base; context.fillRect(0, 0, canvas.width, canvas.height);
@@ -216,7 +219,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
         if (!reduceMotion) requestAnimationFrame(drawBackground);
     }
-    window.addEventListener("resize", drawBackground);
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
     drawBackground();
     renderStory(0);
 

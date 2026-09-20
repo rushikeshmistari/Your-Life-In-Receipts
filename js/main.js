@@ -1,8 +1,11 @@
+"use strict";
+
 document.addEventListener("DOMContentLoaded", async function () {
     const status = document.getElementById("data-status");
     const canvas = document.getElementById("home-canvas");
     const context = canvas.getContext("2d");
     const floatLayer = document.getElementById("home-float-layer");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function formatNumber(value) {
         return new Intl.NumberFormat("en-IN", { notation: "compact", maximumFractionDigits: 1 }).format(value);
@@ -46,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             context.fillRect(0, 0, width, height);
         });
 
-        requestAnimationFrame(paintBackground);
+        if (!reduceMotion) requestAnimationFrame(paintBackground);
     }
 
     ["🎵 A song at 2:14 AM", "🛒 A small purchase", "☕ A familiar ritual", "📍 A place remembered", "📝 A thought saved", "🎧 Played again"].forEach(function (text, index) {

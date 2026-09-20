@@ -180,7 +180,12 @@
 }
 
 .forgot {
+    padding: 0;
+    border: none;
+    background: transparent;
     color: #f3b1bd;
+    cursor: pointer;
+    font-family: inherit;
     font-size: 0.75rem;
     text-decoration: none;
 }
@@ -235,6 +240,28 @@
 .signup-prompt a {
     color: #f3b1bd;
     text-decoration: none;
+}
+
+.btn-google:focus-visible,
+.btn-submit:focus-visible,
+.forgot:focus-visible,
+.create-story-link:focus-visible,
+.account-option:focus-visible,
+.use-another-account:focus-visible,
+.modal-close:focus-visible {
+    outline: 2px solid #f3b1bd;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 .create-story-link {

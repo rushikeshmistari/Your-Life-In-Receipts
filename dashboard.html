@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard | Life, In Receipts</title>
+    <meta name="description" content="Explore a fictional digital archive through evidence-led chapters, filters, and searchable receipts." />
+    <meta name="theme-color" content="#10070d" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data:;" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/dashboard.css" />
 </head>
 <body>
-    <canvas id="background-canvas"></canvas>
+    <canvas id="background-canvas" aria-hidden="true"></canvas>
     <div class="floating-receipts" id="floating-receipts"></div>
 
     <a class="skip-link" href="#story-mode">Skip to story</a>

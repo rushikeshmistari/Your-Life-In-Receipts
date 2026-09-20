@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Sign In | Life, In Receipts</title>
+    <meta name="description" content="Enter the demo archive for Life, In Receipts." />
+    <meta name="theme-color" content="#12070b" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data:;" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap"
@@ -17,7 +22,7 @@
 </head>
 
 <body class="login-page">
-    <canvas id="bg-canvas"></canvas>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
     <div class="floating-receipts" id="chips"></div>
 
     <main class="login-layout">
@@ -81,7 +86,7 @@
                     <div class="field">
                         <div class="field-row">
                             <label for="password">Password</label>
-                            <a href="#" class="forgot">Forgot password?</a>
+                            <button class="forgot" id="forgot-password" type="button">Forgot password?</button>
                         </div>
 
                         <input
@@ -106,13 +111,13 @@
             </div>
         </section>
         <div class="account-modal" id="account-modal" aria-hidden="true">
-    <div class="account-dialog">
+    <div class="account-dialog" role="dialog" aria-modal="true" aria-labelledby="account-dialog-title">
         <button class="modal-close" id="modal-close" type="button" aria-label="Close">
             ×
         </button>
 
         <div class="google-logo">G</div>
-        <h2>Choose an account</h2>
+        <h2 id="account-dialog-title">Choose an account</h2>
         <p>to continue to Life, In Receipts</p>
 
         <button class="account-option" type="button" data-account="alex@example.com" data-name="Alex">
@@ -131,7 +136,7 @@
             </span>
         </button>
 
-        <button class="use-another-account" type="button">
+        <button class="use-another-account" id="use-another-account" type="button">
             + Use another account
         </button>
     </div>
@@ -139,13 +144,13 @@
     </main>
 
     <div class="signup-modal" id="signup-modal" aria-hidden="true">
-        <form class="signup-dialog" id="signup-form">
+        <form class="signup-dialog" id="signup-form" role="dialog" aria-modal="true" aria-labelledby="signup-title">
             <button class="modal-close" id="signup-close" type="button" aria-label="Close">×</button>
             <p class="signup-kicker">NEW MEMORY ARCHIVE</p>
-            <h2>Create your story</h2>
+            <h2 id="signup-title">Create your story</h2>
             <p>Choose a display name for this frontend demo.</p>
             <label for="signup-name">Your name</label>
-            <input id="signup-name" type="text" placeholder="Your name" required />
+            <input id="signup-name" type="text" placeholder="Your name" maxlength="40" autocomplete="name" required />
             <label for="signup-email">Email</label>
             <input id="signup-email" type="email" placeholder="you@example.com" required />
             <button class="btn-submit" type="submit">Create demo archive →</button>
